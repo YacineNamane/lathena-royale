@@ -1,0 +1,19 @@
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+
+  font-family: var(--font-secondary);
+
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-primary);
+  font-weight: 500;
+}
+
+button {
+  cursor: pointer;
+}

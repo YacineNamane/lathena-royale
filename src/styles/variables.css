@@ -1,0 +1,20 @@
+:root {
+  /* Fonts */
+  --font-primary: "Cormorant", serif;
+  --font-secondary: "Satoshi", sans-serif;
+
+  /* Colors */
+  --color-background: #080808;
+  --color-surface: #111111;
+
+  --color-text-primary: #f5f2ea;
+  --color-text-secondary: #b8b3aa;
+
+  --color-accent: #b89b5e;
+
+  /* Layout */
+  --container-width: 1200px;
+
+  /* Spacing */
+  --section-padding: 120px;
+}
