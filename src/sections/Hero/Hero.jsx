@@ -34,9 +34,7 @@ function Hero() {
 
   const videoRefs = useRef([]);
 
-  /*
-    Contrôle lecture des vidéos
-  */
+ 
   useEffect(() => {
     const currentVideo = videoRefs.current[activeVideo];
 
@@ -47,9 +45,7 @@ function Hero() {
     currentVideo.play().catch(() => {});
   }, [activeVideo]);
 
-  /*
-    Passage à la scène suivante
-  */
+ 
   const handleVideoEnd = () => {
     setActiveVideo((current) =>
       current === heroVideos.length - 1 ? 0 : current + 1,
