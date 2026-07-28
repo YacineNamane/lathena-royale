@@ -1,0 +1,114 @@
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 100;
+
+  padding: 2rem 4rem;
+
+  color: var(--color-light);
+
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), transparent);
+}
+
+.navbar__container {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+/*
+Logo
+*/
+
+.navbar__logo {
+  font-family: var(--font-primary);
+
+  font-size: 1.8rem;
+
+  font-weight: 400;
+
+  letter-spacing: 0.04em;
+
+  text-decoration: none;
+
+  color: inherit;
+}
+
+/*
+Navigation
+*/
+
+.navbar__links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 3rem;
+
+  list-style: none;
+}
+
+.navbar__links a {
+  position: relative;
+
+  font-family: var(--font-secondary);
+
+  font-size: 0.85rem;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  opacity: 0.85;
+
+  transition: opacity 300ms ease;
+}
+
+.navbar__links a:hover {
+  opacity: 1;
+}
+
+/*
+Soulignement subtil
+*/
+
+.navbar__links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -0.5rem;
+
+  width: 100%;
+
+  height: 1px;
+
+  background: currentColor;
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: transform 400ms ease;
+}
+
+.navbar__links a:hover::after {
+  transform: scaleX(1);
+}

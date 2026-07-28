@@ -1,19 +1,25 @@
 body {
-  background: var(--color-background);
-  color: var(--color-text-primary);
-
+  margin: 0;
   font-family: var(--font-secondary);
+  background: #080808;
+  color: #f5f2ea;
+}
 
-  line-height: 1.5;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+button {
+  cursor: pointer;
 }
 
 h1,
 h2,
 h3 {
   font-family: var(--font-primary);
-  font-weight: 500;
-}
-
-button {
-  cursor: pointer;
 }
