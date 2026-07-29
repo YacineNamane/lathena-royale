@@ -1,0 +1,37 @@
+.ar-loader {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  background: var(--color-dark);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.ar-loader__panel {
+  position: absolute;
+
+  inset: 0;
+
+  background: var(--color-dark-soft);
+
+  transform-origin: center bottom;
+}
+
+.ar-loader__line {
+  position: relative;
+
+  width: 120px;
+
+  height: 1px;
+
+  background: var(--color-gold);
+}

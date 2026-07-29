@@ -1,20 +1,23 @@
 :root {
+  /* Background */
+  --color-dark: #0b0b0a;
+  --color-dark-soft: #151412;
+
+  /* Surface / glass */
+  --color-glass: rgba(255, 255, 255, 0.06);
+
+  /* Text */
+  --color-light: #f5f2ea;
+  --color-muted: rgba(245, 242, 234, 0.7);
+
+  /* Luxury accent */
+  --color-gold: #c6a15b;
+  --color-gold-soft: rgba(198, 161, 91, 0.75);
+
+  /* Borders */
+  --color-border: rgba(245, 242, 234, 0.25);
+
   /* Fonts */
   --font-primary: "Cormorant", serif;
   --font-secondary: "Satoshi", sans-serif;
-
-  /* Colors */
-  --color-background: #080808;
-  --color-surface: #111111;
-
-  --color-text-primary: #f5f2ea;
-  --color-text-secondary: #b8b3aa;
-
-  --color-accent: #b89b5e;
-
-  /* Layout */
-  --container-width: 1200px;
-
-  /* Spacing */
-  --section-padding: 120px;
 }
