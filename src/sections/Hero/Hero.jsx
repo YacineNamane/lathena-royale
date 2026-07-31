@@ -17,16 +17,12 @@ import "./Hero.css";
 const heroScenes = [
   {
     id: "atmosphere",
-
     title: "L'Athena Royale",
-
     subtitle: "Maison de haute pâtisserie française.",
-
     cta: {
       label: "Découvrir les créations",
       href: "/creations",
     },
-
     video: {
       webm: atmosphereWebm,
       mp4: atmosphereMp4,
@@ -35,16 +31,12 @@ const heroScenes = [
 
   {
     id: "craft",
-
     title: "Le Savoir-Faire",
-
     subtitle: "Chaque création naît d'un geste précis.",
-
     cta: {
       label: "Notre héritage",
       href: "/about",
     },
-
     video: {
       webm: craftWebm,
       mp4: craftMp4,
@@ -53,16 +45,12 @@ const heroScenes = [
 
   {
     id: "creation",
-
     title: "Nos Créations",
-
     subtitle: "Inspirées par les saisons et façonnées avec patience.",
-
     cta: {
       label: "Explorer la collection",
       href: "/creations",
     },
-
     video: {
       webm: creationWebm,
       mp4: creationMp4,
@@ -78,17 +66,15 @@ function LuxuryTitle({ children }) {
           key={`${letter}-${index}`}
           className="hero__title-letter"
           initial={{
+            y: "100%",
             opacity: 0,
-            y: 20,
-            filter: "blur(8px)",
           }}
           animate={{
-            opacity: 1,
             y: 0,
-            filter: "blur(0px)",
+            opacity: 1,
           }}
           transition={{
-            duration: 1.2,
+            duration: 0.9,
             delay: index * 0.035,
             ease: [0.22, 1, 0.36, 1],
           }}
@@ -100,12 +86,41 @@ function LuxuryTitle({ children }) {
   );
 }
 
+function LuxurySubtitle({ children }) {
+  return (
+    <>
+      {children.split(" ").map((word, index) => (
+        <motion.span
+          key={`${word}-${index}`}
+          className="hero__subtitle-word"
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: index * 0.08,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+        >
+          {word}&nbsp;
+        </motion.span>
+      ))}
+    </>
+  );
+}
+
 function Hero() {
   const { finishLoading } = useLoading();
-  const [activeScene, setActiveScene] = useState(0);
 
   const videoRef = useRef(null);
-  const [isVideoReady, setIsVideoReady] = useState(false);
+
+  const [activeScene, setActiveScene] = useState(0);
+  const [isChangingVideo, setIsChangingVideo] = useState(false);
 
   const scene = heroScenes[activeScene];
 
@@ -114,46 +129,63 @@ function Hero() {
 
     if (!video) return;
 
-    const startVideo = async () => {
-      video.load();
+    video.src = scene.video.mp4;
+    video.load();
 
+    const playVideo = async () => {
       try {
         await video.play();
       } catch (error) {
         if (error.name !== "AbortError") {
-          console.log(error);
+          console.error(error);
         }
       }
     };
 
-    startVideo();
+    video.addEventListener("loadeddata", playVideo, { once: true });
+
+    return () => {
+      video.removeEventListener("loadeddata", playVideo);
+    };
   }, [activeScene]);
 
-  const handleVideoEnd = () => {
+  const handleVideoEnd = async () => {
+    if (isChangingVideo) return;
+
+    setIsChangingVideo(true);
+
+    // temps du fade out CSS
+    await new Promise((resolve) => setTimeout(resolve, 700));
+
     setActiveScene((current) =>
       current === heroScenes.length - 1 ? 0 : current + 1,
     );
+
+    // laisse la nouvelle vidéo charger
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    // fade in
+    setIsChangingVideo(false);
   };
 
   return (
     <section className="hero">
       <div className="hero__media">
         <video
-          key={scene.id}
           ref={videoRef}
-          className="hero__video is-active"
+          className={`hero__video ${
+            isChangingVideo ? "is-changing" : "is-active"
+          }`}
           muted
           playsInline
-          preload="metadata"
-          onCanPlayThrough={() => {
+          preload="auto"
+          onEnded={handleVideoEnd}
+          onLoadedData={() => {
             if (activeScene === 0) {
               finishLoading();
             }
           }}
-          onEnded={handleVideoEnd}
-        >
-          <source src={scene.video.mp4} type="video/mp4" />
-        </video>
+        />
       </div>
 
       <div className="hero__overlay" aria-hidden="true" />
@@ -171,32 +203,16 @@ function Hero() {
             }}
             exit={{
               opacity: 0,
+
               transition: {
-                duration: 1.2,
+                duration: 0.7,
               },
             }}
           >
             <LuxuryTitle>{scene.title}</LuxuryTitle>
 
-            <motion.p
-              className="hero__subtitle"
-              initial={{
-                opacity: 0,
-                y: 15,
-                filter: "blur(6px)",
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                filter: "blur(0)",
-              }}
-              transition={{
-                duration: 1.6,
-                delay: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              {scene.subtitle}
+            <motion.p className="hero__subtitle">
+              <LuxurySubtitle>{scene.subtitle}</LuxurySubtitle>
             </motion.p>
           </motion.div>
         </AnimatePresence>
