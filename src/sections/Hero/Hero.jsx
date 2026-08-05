@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { forwardRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLoading } from "../../context/LoadingContext";
+
+import { FaInstagram, FaTiktok } from "react-icons/fa";
+import { PiArrowBendRightDownThin } from "react-icons/pi";
+import { FaXTwitter } from "react-icons/fa6";
 
 import atmosphereWebm from "../../assets/videos/hero/atmosphere.webm";
 import atmosphereMp4 from "../../assets/videos/hero/atmosphere.mp4";
@@ -154,17 +159,14 @@ function Hero() {
 
     setIsChangingVideo(true);
 
-    // temps du fade out CSS
     await new Promise((resolve) => setTimeout(resolve, 700));
 
     setActiveScene((current) =>
       current === heroScenes.length - 1 ? 0 : current + 1,
     );
 
-    // laisse la nouvelle vidéo charger
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    // fade in
     setIsChangingVideo(false);
   };
 
@@ -189,6 +191,43 @@ function Hero() {
       </div>
 
       <div className="hero__overlay" aria-hidden="true" />
+      <motion.div
+        className="hero__socials"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.8,
+          delay: 2,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <FaInstagram />
+        </a>
+
+        <a
+          href="https://tiktok.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok"
+        >
+          <FaTiktok />
+        </a>
+
+        <a
+          href="https://x.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X"
+        >
+          <FaXTwitter />
+        </a>
+      </motion.div>
 
       <div className="hero__content">
         <AnimatePresence mode="wait">
@@ -247,6 +286,30 @@ function Hero() {
           />
         ))}
       </div>
+      <motion.div
+        className="hero__scroll"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 0.8,
+          delay: 2.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <span>SCROLL</span>
+        <PiArrowBendRightDownThin className="hero__scroll-icon" />
+        <motion.div
+          className="hero__scroll-indicator"
+          animate={{
+            y: [0, 8, 0],
+          }}
+          transition={{
+            duration: 1.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </motion.div>
     </section>
   );
 }
