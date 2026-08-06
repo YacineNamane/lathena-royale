@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { forwardRef } from "react";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { useLoading } from "../../context/LoadingContext";
 
@@ -119,7 +119,7 @@ function LuxurySubtitle({ children }) {
   );
 }
 
-function Hero() {
+const Hero = forwardRef(function Hero(_, ref) {
   const { finishLoading } = useLoading();
 
   const videoRef = useRef(null);
@@ -171,7 +171,7 @@ function Hero() {
   };
 
   return (
-    <section className="hero">
+    <section ref={ref} className="hero">
       <div className="hero__media">
         <video
           ref={videoRef}
@@ -312,6 +312,6 @@ function Hero() {
       </motion.div>
     </section>
   );
-}
+});
 
 export default Hero;

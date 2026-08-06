@@ -1,0 +1,33 @@
+.hero-stage {
+  height: 200vh;
+
+  position: relative;
+}
+
+.hero-sticky {
+  position: sticky;
+
+  top: 0;
+
+  height: 100vh;
+
+  z-index: 1;
+}
+
+.creations-curtain {
+  position: absolute;
+
+  top: 100vh;
+
+  left: 0;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: #faf7f2;
+
+  border-radius: 40px 40px 0 0;
+
+  z-index: 5;
+}
