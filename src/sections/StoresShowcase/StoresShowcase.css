@@ -62,8 +62,6 @@
   transform-style: preserve-3d;
 }
 
-/* CARTE DU CERCLE */
-
 .store-card {
   position: absolute;
 
@@ -83,8 +81,6 @@
   backface-visibility: hidden;
 }
 
-/* CONTENU QUI SUIT LA CARTE */
-
 .store-card__inner {
   width: 100%;
 
@@ -94,8 +90,6 @@
 
   transform-style: preserve-3d;
 }
-
-/* FENETRE */
 
 .store-card__viewport {
   width: 100%;
@@ -107,7 +101,6 @@
 
   transform-style: preserve-3d;
 }
-/* IMAGE PLUS GRANDE QUE LA FENETRE */
 
 .store-card__viewport img {
   width: 150%;
@@ -122,8 +115,6 @@
 
   will-change: transform;
 }
-
-/* TEXTE */
 
 .store-card__info {
   position: absolute;
