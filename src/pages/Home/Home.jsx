@@ -1,7 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
+import StoresShowcase from "../../sections/StoresShowcase/StoresShowcase";
 import Hero from "../../sections/Hero/Hero";
 import CreationsShowcase from "../../sections/CreationsShowcase/CreationsShowcase";
 
@@ -17,7 +18,13 @@ function Home() {
     offset: ["start bottom", "start top"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
+  const rawY = useTransform(scrollYProgress, [0.05, 0.85], ["100%", "0%"]);
+
+  const y = useSpring(rawY, {
+    stiffness: 25,
+    damping: 18,
+    mass: 1.4,
+  });
 
   return (
     <>
@@ -34,6 +41,7 @@ function Home() {
           }}
         >
           <CreationsShowcase />
+          <StoresShowcase />
         </motion.div>
       </section>
     </>
