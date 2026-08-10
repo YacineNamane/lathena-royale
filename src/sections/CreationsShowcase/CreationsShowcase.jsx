@@ -1,7 +1,75 @@
 import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { creations } from "../../data/creations";
 import { useLazyImage } from "../../hooks/useLazyImage";
 import "./CreationsShowcase.css";
+
+function FlashTitle() {
+  const ref = useRef(null);
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    const element = ref.current;
+
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.6,
+      },
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [started]);
+
+  const letters = "Nos Créations".split("");
+
+  return (
+    <h2
+      ref={ref}
+      className={`creations-showcase__title ${started ? "is-flashing" : ""}`}
+      aria-label="Nos Créations"
+    >
+      {letters.map((letter, index) => (
+        <motion.span
+          key={`${letter}-${index}`}
+          className="creations-showcase__letter"
+          initial={{
+            opacity: 0,
+          }}
+          animate={
+            started
+              ? {
+                  opacity: [0, 1, 0.15, 1, 0, 1],
+                }
+              : {
+                  opacity: 0,
+                }
+          }
+          transition={
+            started
+              ? {
+                  duration: 0.45 + Math.random() * 0.35,
+                  delay: Math.random() * 2.3,
+                  ease: "linear",
+                }
+              : {}
+          }
+        >
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </h2>
+  );
+}
 
 function CreationCard({ creation, index = 0 }) {
   const { ref, visible } = useLazyImage();
@@ -53,7 +121,6 @@ function CreationCard({ creation, index = 0 }) {
 
       <div className="creation-card__info">
         <h3>{creation.name}</h3>
-
         <span>{creation.season}</span>
       </div>
     </motion.article>
@@ -67,7 +134,7 @@ function CreationsShowcase() {
 
   return (
     <section className="creations-showcase">
-      <h2 className="creations-showcase__title">Nos Créations</h2>
+      <FlashTitle />
 
       <div className="creations-showcase__row creations-showcase__row--large">
         {firstRow.map((creation, index) => (

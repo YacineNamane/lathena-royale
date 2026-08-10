@@ -15,7 +15,13 @@ function StoresRing({ progress, stores }) {
       }}
     >
       {stores.map((store, index) => (
-        <StoreCard key={store.id} store={store} angle={POSITIONS[index]} />
+        <StoreCard
+          key={store.id}
+          store={store}
+          angle={POSITIONS[index]}
+          progress={progress}
+          index={index}
+        />
       ))}
     </motion.div>
   );

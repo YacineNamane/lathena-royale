@@ -1,4 +1,10 @@
-function StoreCard({ store, angle }) {
+import { motion, useTransform } from "framer-motion";
+
+function StoreCard({ store, angle, progress }) {
+  const imageX = useTransform(progress, [0, 0.5, 1], ["-14%", "0%", "14%"]);
+
+  const imageY = useTransform(progress, [0, 0.5, 1], ["-6%", "0%", "6%"]);
+
   return (
     <article
       className="store-card"
@@ -7,13 +13,20 @@ function StoreCard({ store, angle }) {
       }}
     >
       <div className="store-card__viewport">
-        <img src={store.image} alt={store.title} />
-      </div>
+        <motion.img
+          src={store.image}
+          alt={store.city}
+          style={{
+            x: imageX,
+            y: imageY,
+          }}
+        />
 
-      <div className="store-card__info">
-        <h3>{store.title}</h3>
+        <div className="store-card__locations">
+          <span className="store-card__city">{store.city}</span>
 
-        <p>{store.description}</p>
+          <span className="store-card__address">{store.address}</span>
+        </div>
       </div>
     </article>
   );

@@ -16,6 +16,15 @@
   margin: 0 0 8rem;
 
   text-align: center;
+
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.creations-showcase__letter {
+  display: inline-block;
+  will-change: opacity;
 }
 
 .creations-showcase__row {

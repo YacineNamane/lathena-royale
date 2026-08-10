@@ -1,72 +1,69 @@
 .stores-showcase {
   height: 250vh;
-
-  background: #faf7f2;
-
+  background: var(--color-dark);
   perspective: 1600px;
 }
 
 .stores-showcase__sticky {
   position: sticky;
-
   top: 0;
-
   height: 100vh;
-
   overflow: hidden;
 }
 
 .stores-showcase__scene {
   position: absolute;
-
   inset: 0;
 
   display: flex;
-
   align-items: center;
-
   justify-content: center;
 
   perspective: 1800px;
-
   transform-style: preserve-3d;
 }
 
 .stores-showcase__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
   position: absolute;
-
-  top: 80px;
-
-  left: 8vw;
-
+  top: 60px;
   z-index: 10;
+  width: 100%;
 }
 
 .stores-showcase__title h2 {
-  font-size: clamp(3rem, 6vw, 5rem);
-
-  font-weight: 300;
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 200;
+  letter-spacing: 20px;
+  color: var(--color-gold-soft);
+  margin: 0 0 8rem;
+  text-align: center;
 }
 
 .stores-showcase__title p {
-  margin-top: 20px;
+  margin-top: 24px;
+  max-width: 420px;
+  line-height: 1.6;
 }
 
 .stores-ring {
   position: relative;
-
   width: 0;
-
   height: 0;
-
   transform-style: preserve-3d;
+  margin-top: 100px;
 }
 
 .store-card {
   position: absolute;
 
-  width: 360px;
-  height: 300px;
+  width: 270px;
+  height: 270px;
 
   top: 50%;
   left: 50%;
@@ -81,56 +78,66 @@
   backface-visibility: hidden;
 }
 
-.store-card__inner {
-  width: 100%;
-
-  height: 100%;
-
+.store-card__viewport {
   position: relative;
 
-  transform-style: preserve-3d;
-}
-
-.store-card__viewport {
   width: 100%;
   height: 100%;
 
   overflow: hidden;
 
-  position: relative;
-
-  transform-style: preserve-3d;
+  transform-style: flat;
 }
 
 .store-card__viewport img {
+  position: absolute;
+
   width: 150%;
   height: 150%;
-
-  object-fit: cover;
-
-  position: absolute;
 
   top: -25%;
   left: -25%;
 
+  max-width: none;
+
+  object-fit: cover;
+
+  display: block;
+
   will-change: transform;
 }
 
-.store-card__info {
+.store-card__locations {
   position: absolute;
-
-  left: 30px;
-
-  bottom: 30px;
-
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
   color: white;
+  z-index: 2;
+  pointer-events: none;
+}
 
-  transform: translateZ(60px);
+.store-card__city {
+  color: var(--color-gold-soft);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.store-card__address {
+  max-width: 55%;
+  font-size: 0.5rem;
+  line-height: 1.4;
+  text-align: right;
+  opacity: 0.8;
 }
 
 .store-card__info h3 {
   font-size: 2rem;
-
   font-weight: 400;
 }
 
