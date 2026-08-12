@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import StoresShowcase from "../../sections/StoresShowcase/StoresShowcase";
 import Hero from "../../sections/Hero/Hero";
 import CreationsShowcase from "../../sections/CreationsShowcase/CreationsShowcase";
+import StorytellingShowcase from "../../sections/Storytelling/StorytellingShowcase";
 
 import "./Home.css";
 
@@ -42,6 +43,7 @@ function Home() {
         >
           <CreationsShowcase />
           <StoresShowcase />
+          <StorytellingShowcase />
         </motion.div>
       </section>
     </>

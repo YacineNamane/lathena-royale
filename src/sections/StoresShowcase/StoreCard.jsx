@@ -21,12 +21,12 @@ function StoreCard({ store, angle, progress }) {
             y: imageY,
           }}
         />
+      </div>
 
-        <div className="store-card__locations">
-          <span className="store-card__city">{store.city}</span>
+      <div className="store-card__locations">
+        <span className="store-card__city">{store.city}</span>
 
-          <span className="store-card__address">{store.address}</span>
-        </div>
+        <span className="store-card__address">{store.address}</span>
       </div>
     </article>
   );
