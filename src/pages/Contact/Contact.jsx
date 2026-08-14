@@ -1,8 +1,9 @@
+import ContactSection from "../../sections/Contact/ContactSection";
 import "./Contact.css";
 function Contact() {
   return (
     <main>
-      <h1>Contact</h1>
+      <ContactSection />
     </main>
   );
 }
