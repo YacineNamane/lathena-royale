@@ -1,8 +1,9 @@
+import NosCreations from "../../components/NosCreations/NosCreations";
 import "./Creations.css";
 function Creations() {
   return (
     <main>
-      <h1>Créations</h1>
+      <NosCreations />
     </main>
   );
 }

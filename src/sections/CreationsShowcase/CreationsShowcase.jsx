@@ -42,9 +42,7 @@ function FlashTitle() {
         <motion.span
           key={`${letter}-${index}`}
           className="creations-showcase__letter"
-          initial={{
-            opacity: 0,
-          }}
+          initial={{ opacity: 0 }}
           animate={
             started
               ? {
@@ -71,7 +69,7 @@ function FlashTitle() {
   );
 }
 
-function CreationCard({ creation, index = 0 }) {
+export function CreationCard({ creation, index = 0 }) {
   const { ref, visible } = useLazyImage();
 
   return (
