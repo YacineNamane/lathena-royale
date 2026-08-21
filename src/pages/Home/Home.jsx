@@ -6,6 +6,7 @@ import StoresShowcase from "../../sections/StoresShowcase/StoresShowcase";
 import Hero from "../../sections/Hero/Hero";
 import CreationsShowcase from "../../sections/CreationsShowcase/CreationsShowcase";
 import StorytellingShowcase from "../../sections/Storytelling/StorytellingShowcase";
+import ReservationHighlight from "../../sections/ReservationHighlight/ReservationHightlight";
 import Newsletter from "../../sections/Newsletter/Newsletter";
 
 import "./Home.css";
@@ -45,6 +46,7 @@ function Home() {
           <CreationsShowcase />
           <StoresShowcase />
           <StorytellingShowcase />
+          <ReservationHighlight />
           <Newsletter />
         </motion.div>
       </section>
