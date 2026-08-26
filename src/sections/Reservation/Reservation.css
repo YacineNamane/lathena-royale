@@ -1,0 +1,527 @@
+.reservation-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--color-dark);
+  color: white;
+}
+
+.reservation-page__hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100vh;
+
+  box-sizing: border-box;
+  padding: 18vh 5vw 14vh;
+
+  text-align: center;
+}
+
+.reservation-page__hero-inner {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.reservation-page__hero h1 {
+  margin: 0;
+
+  color: var(--color-gold-soft);
+
+  font-family: var(--font-secondary);
+  font-size: clamp(5rem, 6vw, 11rem);
+  font-weight: 200;
+
+  line-height: 0.82;
+  letter-spacing: 0.035em;
+
+  text-transform: uppercase;
+}
+
+.reservation-page__hero p {
+  width: min(100%, 500px);
+
+  margin: 45px auto 0;
+
+  color: rgba(255, 255, 255, 0.52);
+
+  font-size: 0.82rem;
+  line-height: 1.9;
+
+  letter-spacing: 0.035em;
+}
+
+.reservation-page__hero-cta {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 220px;
+
+  margin-top: 42px;
+  padding: 17px 24px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  background: transparent;
+  color: white;
+
+  font: inherit;
+  font-size: 0.62rem;
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  isolation: isolate;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.reservation-page__hero-cta::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  background: var(--color-gold-soft);
+
+  transform: translateY(100%);
+
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reservation-page__hero-cta:hover {
+  border-color: var(--color-gold-soft);
+  color: var(--color-dark);
+}
+
+.reservation-page__hero-cta:hover::before {
+  transform: translateY(0);
+}
+
+.reservation-page__occasions {
+  width: min(100% - 10vw, 1270px);
+  margin: 0 auto;
+  padding: 13vh 0 13vh;
+}
+
+.reservation-page__occasions-heading {
+  padding-bottom: 7vh;
+}
+
+.reservation-page__occasions-heading > span {
+  align-self: start;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 0.6rem;
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.reservation-page__occasions-heading h2 {
+  margin: 0;
+
+  color: var(--color-gold-soft);
+
+  font-family: var(--font-secondary);
+
+  font-size: clamp(4rem, 6vw, 6.5rem);
+  font-weight: 200;
+
+  line-height: 0.86;
+  letter-spacing: 0.055em;
+
+  text-transform: uppercase;
+}
+
+.reservation-page__occasions-list {
+  width: 100%;
+}
+
+.reservation-page__occasion {
+  display: grid;
+  grid-template-columns: 55px 1fr 30px;
+
+  align-items: center;
+
+  min-height: 145px;
+
+  padding: 28px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition:
+    padding 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
+}
+
+.reservation-page__occasion-number {
+  align-self: start;
+
+  padding-top: 5px;
+
+  color: var(--color-gold-soft);
+
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+
+.reservation-page__occasion-content {
+  max-width: 560px;
+}
+
+.reservation-page__occasion-content h3 {
+  margin: 0;
+
+  color: white;
+
+  font-family: var(--font-secondary);
+
+  font-size: clamp(2.2rem, 3.5vw, 3.8rem);
+  font-weight: 200;
+
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.reservation-page__occasion-content p {
+  max-width: 440px;
+
+  margin: 16px 0 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 0.76rem;
+  line-height: 1.8;
+
+  letter-spacing: 0.025em;
+}
+
+.reservation-page__occasion-arrow {
+  justify-self: end;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  font-size: 1rem;
+
+  transition:
+    color 0.3s ease,
+    transform 0.35s ease;
+}
+
+.reservation-page__occasion:hover {
+  padding-left: 18px;
+
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.reservation-page__occasion:hover .reservation-page__occasion-arrow {
+  color: var(--color-gold-soft);
+
+  transform: translate(4px, -4px);
+}
+
+.reservation-page__hours {
+  display: flex;
+
+  margin: 0 auto;
+  padding: 0vh 0 0vh;
+  height: 100vh;
+}
+
+.reservation-page__hours-content {
+  align-self: center;
+}
+
+.reservation-page__hours-heading span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 0.6rem;
+  font-weight: 500;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.reservation-page__hours-heading h2 {
+  margin: 0;
+
+  color: var(--color-gold-soft);
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+
+  font-size: clamp(4rem, 6vw, 6.5rem);
+  font-weight: 200;
+
+  line-height: 0.86;
+  letter-spacing: 0.095em;
+}
+
+.reservation-page__hours-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  gap: 7em;
+  padding: 3rem;
+  height: 100%;
+}
+
+.reservation-page__hours-list {
+  width: 100%;
+}
+
+.reservation-page__hours-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 58px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reservation-page__hours-row:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reservation-page__hours-day {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+}
+
+.reservation-page__hours-status {
+  width: 5px;
+  height: 5px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #a6eea0;
+}
+
+.reservation-page__hours-row.is-closed .reservation-page__hours-status {
+  background: #9a6666;
+}
+
+.reservation-page__hours-row.is-closed .reservation-page__hours-day,
+.reservation-page__hours-row.is-closed strong {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.reservation-page__hours-row strong {
+  color: white;
+
+  font-size: 0.7rem;
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+}
+
+.reservation-page__hours-note {
+  max-width: 420px;
+
+  margin: 24px 0 0;
+
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 0.58rem;
+
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+.reservation-page__hours-media {
+  position: relative;
+
+  width: 60%;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  aspect-ratio: 0.82;
+}
+
+.reservation-page__hours-media::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.18));
+
+  pointer-events: none;
+}
+
+.reservation-page__hours-media img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .reservation-page__hero {
+    min-height: 85vh;
+
+    padding: 15vh 6vw 12vh;
+  }
+
+  .reservation-page__hero h1 {
+    font-size: clamp(4rem, 15vw, 7rem);
+  }
+
+  .reservation-page__occasions,
+  .reservation-page__hours {
+    width: min(100% - 12vw, 1200px);
+  }
+
+  .reservation-page__occasions-heading {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .reservation-page__hours {
+    grid-template-columns: 1fr;
+
+    gap: 10vh;
+  }
+
+  .reservation-page__occasion {
+    grid-template-columns: 45px 1fr 20px;
+  }
+
+  .reservation-page__occasion:hover {
+    padding-left: 0;
+  }
+
+  .reservation-page__hours-media {
+    max-width: 600px;
+
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .reservation-page__hero {
+    min-height: 80vh;
+  }
+
+  .reservation-page__hero h1 {
+    font-size: clamp(3.6rem, 16vw, 5.5rem);
+
+    letter-spacing: 0.025em;
+  }
+
+  .reservation-page__hero p {
+    margin-top: 32px;
+  }
+
+  .reservation-page__hero-cta {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .reservation-page__occasions,
+  .reservation-page__hours {
+    padding: 12vh 0 14vh;
+  }
+
+  .reservation-page__occasions-heading {
+    padding-bottom: 5vh;
+  }
+
+  .reservation-page__occasions-heading h2 {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+  }
+
+  .reservation-page__occasion {
+    grid-template-columns: 35px 1fr;
+
+    min-height: 0;
+
+    padding: 26px 0;
+  }
+
+  .reservation-page__occasion-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .reservation-page__occasion-content p {
+    margin-top: 14px;
+  }
+
+  .reservation-page__occasion-arrow {
+    display: none;
+  }
+
+  .reservation-page__hours-heading {
+    margin-bottom: 5vh;
+  }
+
+  .reservation-page__hours-heading h2 {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+  }
+
+  .reservation-page__hours-row {
+    min-height: 55px;
+  }
+
+  .reservation-page__hours-day {
+    gap: 9px;
+  }
+
+  .reservation-page__hours-row strong {
+    font-size: 0.62rem;
+  }
+
+  .reservation-page__hours-media {
+    aspect-ratio: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reservation-page__hero-cta,
+  .reservation-page__hero-cta::before,
+  .reservation-page__occasion,
+  .reservation-page__occasion-arrow,
+  .reservation-page__hours-media img {
+    transition: none;
+  }
+}

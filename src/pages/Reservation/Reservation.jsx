@@ -1,8 +1,9 @@
+import ReservationSection from "../../sections/Reservation/Reservation";
 import "./Reservation.css";
 function Reservation() {
   return (
     <main>
-      <h1>Réservation</h1>
+      <ReservationSection />
     </main>
   );
 }
