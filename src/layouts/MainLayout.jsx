@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { useScroll } from "framer-motion";
+
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
@@ -16,7 +17,7 @@ function MainLayout() {
     <>
       <Navbar heroProgress={scrollYProgress} />
 
-      <main>
+      <main className="main-content">
         <Outlet
           context={{
             heroRef,
