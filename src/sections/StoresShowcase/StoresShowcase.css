@@ -147,3 +147,9 @@
 .store-card__info p {
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+  .stores-showcase__title h2 {
+    font-size: clamp(3rem, 14vw, 3rem);
+  }
+}

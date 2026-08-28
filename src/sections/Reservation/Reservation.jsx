@@ -1,4 +1,8 @@
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
 import reservationHoursImage from "../../assets/images/stores/BT3.jpg";
+
 import "./Reservation.css";
 
 const reservationOptions = [
@@ -42,6 +46,15 @@ function ReservationSection() {
   const handleReservation = () => {
     console.log("Reservation UI");
   };
+
+  const hoursRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: hoursRef,
+    offset: ["start end", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
 
   return (
     <main className="reservation-page">
@@ -104,9 +117,21 @@ function ReservationSection() {
       </section>
 
       <section
+        ref={hoursRef}
         className="reservation-page__hours"
         aria-labelledby="reservation-hours-title"
       >
+        <motion.figure
+          ref={hoursRef}
+          className="reservation-page__hours-media"
+          style={{ y: imageY }}
+        >
+          <img
+            src={reservationHoursImage}
+            alt="Tableau des horaires à l'entrée de L'Athena Royale"
+          />
+        </motion.figure>
+
         <div className="reservation-page__hours-content">
           <div className="reservation-page__hours-heading">
             <h2 id="reservation-hours-title">Horaires</h2>
@@ -139,13 +164,6 @@ function ReservationSection() {
             exceptionnels.
           </p>
         </div>
-
-        <figure className="reservation-page__hours-media">
-          <img
-            src={reservationHoursImage}
-            alt="Tableau des horaires à l'entrée de L'Athena Royale"
-          />
-        </figure>
       </section>
     </main>
   );

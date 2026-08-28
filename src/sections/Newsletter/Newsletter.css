@@ -160,13 +160,13 @@
   color: var(--color-gold-soft);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .newsletter {
     padding: 12vh 6vw;
   }
 
   .newsletter h2 {
-    font-size: clamp(3rem, 14vw, 5rem);
+    font-size: clamp(3rem, 14vw, 3rem);
     letter-spacing: 0.04em;
   }
 
@@ -181,5 +181,10 @@
   .newsletter__field input,
   .newsletter__field button {
     padding: 16px;
+  }
+  .newsletter__eyebrow {
+    font-size: 1.5rem;
+    letter-spacing: 0.75em;
+    margin-bottom: 20px;
   }
 }

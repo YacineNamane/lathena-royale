@@ -107,6 +107,7 @@
 
 .reservation-page__hero-cta:hover {
   border-color: var(--color-gold-soft);
+
   color: var(--color-dark);
 }
 
@@ -116,8 +117,9 @@
 
 .reservation-page__occasions {
   width: min(100% - 10vw, 1270px);
+
   margin: 0 auto;
-  padding: 13vh 0 13vh;
+  padding: 13vh 0;
 }
 
 .reservation-page__occasions-heading {
@@ -159,6 +161,7 @@
 
 .reservation-page__occasion {
   display: grid;
+
   grid-template-columns: 55px 1fr 30px;
 
   align-items: center;
@@ -241,15 +244,40 @@
 }
 
 .reservation-page__hours {
+  position: relative;
+
   display: flex;
 
-  margin: 0 auto;
-  padding: 0vh 0 0vh;
+  width: 100%;
   height: 100vh;
+  min-height: 700px;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  background: var(--color-dark);
 }
 
 .reservation-page__hours-content {
-  align-self: center;
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 40%;
+  height: 100%;
+
+  gap: 7em;
+
+  padding: 3rem;
+
+  box-sizing: border-box;
+
+  background: var(--color-dark);
 }
 
 .reservation-page__hours-heading span {
@@ -271,24 +299,16 @@
   margin: 0;
 
   color: var(--color-gold-soft);
+
   font-family: var(--font-secondary);
-  text-transform: uppercase;
 
   font-size: clamp(4rem, 6vw, 6.5rem);
   font-weight: 200;
 
   line-height: 0.86;
   letter-spacing: 0.095em;
-}
 
-.reservation-page__hours-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
-  gap: 7em;
-  padding: 3rem;
-  height: 100%;
+  text-transform: uppercase;
 }
 
 .reservation-page__hours-list {
@@ -365,14 +385,14 @@
 
 .reservation-page__hours-media {
   position: relative;
+  z-index: 1;
 
   width: 60%;
+  height: 100%;
 
   margin: 0;
 
   overflow: hidden;
-
-  aspect-ratio: 0.82;
 }
 
 .reservation-page__hours-media::after {
@@ -380,6 +400,8 @@
 
   position: absolute;
   inset: 0;
+
+  z-index: 1;
 
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.18));
 
@@ -390,63 +412,127 @@
   display: block;
 
   width: 100%;
-  height: 100%;
+  height: 116%;
+
+  max-width: none;
 
   object-fit: cover;
 }
 
 @media (max-width: 1024px) {
-  .reservation-highlight__eyebrow {
-    font-size: 3rem;
+  .reservation-page__hours {
+    display: block;
+
+    height: 100vh;
+    min-height: 700px;
+
+    overflow: hidden;
+  }
+
+  .reservation-page__hours-media {
+    position: absolute;
+    inset: -8% 0;
+
+    z-index: 0;
+
+    width: 100%;
+    height: 116%;
+
+    margin: 0;
+
+    overflow: hidden;
+  }
+
+  .reservation-page__hours-media::after {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.18) 0%,
+      rgba(0, 0, 0, 0.38) 45%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
+  }
+
+  .reservation-page__hours-media img {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+  }
+
+  .reservation-page__hours-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: min(100% - 12vw, 720px);
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding: 8vh 0;
+
+    box-sizing: border-box;
+
+    gap: 5vh;
+
+    background: transparent;
+  }
+
+  .reservation-page__hours-heading {
+    margin: 0;
+  }
+
+  .reservation-page__hours-heading h2 {
+    color: white;
+
+    font-size: clamp(4rem, 8vw, 6.5rem);
+
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .reservation-page__hours-list {
+    background: rgba(8, 8, 8, 0.18);
+
+    backdrop-filter: blur(2px);
+  }
+
+  .reservation-page__hours-row {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .reservation-page__hours-row:first-child {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .reservation-page__hours-day {
+    color: rgba(255, 255, 255, 0.72);
+  }
+
+  .reservation-page__hours-row strong {
+    color: white;
+  }
+
+  .reservation-page__hours-note {
+    color: rgba(255, 255, 255, 0.58);
+
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .reservation-page__hero {
-    min-height: 85vh;
+    min-height: 100vh;
 
     padding: 15vh 6vw 12vh;
   }
 
-  .reservation-page__hero h1 {
-    font-size: clamp(4rem, 15vw, 7rem);
-  }
-
-  .reservation-page__occasions,
-  .reservation-page__hours {
-    width: min(100% - 12vw, 1200px);
-  }
-
-  .reservation-page__occasions-heading {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
-  }
-
-  .reservation-page__hours {
-    grid-template-columns: 1fr;
-
-    gap: 10vh;
-  }
-
-  .reservation-page__occasion {
-    grid-template-columns: 45px 1fr 20px;
-  }
-
-  .reservation-page__occasion:hover {
-    padding-left: 0;
-  }
-
-  .reservation-page__hours-media {
-    max-width: 600px;
-
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 600px) {
-  .reservation-page__hero {
-    min-height: 80vh;
+  .reservation-highlight__eyebrow {
+    font-size: clamp(2rem, 10vw, 2.5rem);
   }
 
   .reservation-page__hero h1 {
@@ -464,8 +550,9 @@
     max-width: 280px;
   }
 
-  .reservation-page__occasions,
-  .reservation-page__hours {
+  .reservation-page__occasions {
+    width: calc(100% - 12vw);
+
     padding: 12vh 0 14vh;
   }
 
@@ -474,7 +561,7 @@
   }
 
   .reservation-page__occasions-heading h2 {
-    font-size: clamp(3.5rem, 15vw, 5.5rem);
+    font-size: clamp(2rem, 10vw, 3.5rem);
   }
 
   .reservation-page__occasion {
@@ -497,8 +584,16 @@
     display: none;
   }
 
-  .reservation-page__hours-heading {
-    margin-bottom: 5vh;
+  .reservation-page__hours {
+    min-height: 680px;
+  }
+
+  .reservation-page__hours-content {
+    width: calc(100% - 40px);
+
+    padding: 7vh 0;
+
+    gap: 10vh;
   }
 
   .reservation-page__hours-heading h2 {
@@ -506,22 +601,24 @@
   }
 
   .reservation-page__hours-row {
-    min-height: 55px;
+    min-height: 52px;
   }
 
   .reservation-page__hours-day {
-    gap: 9px;
-  }
+    gap: 8px;
 
-  .reservation-page__hours-row strong {
     font-size: 0.62rem;
   }
 
-  .reservation-page__hours-media {
-    aspect-ratio: 0.9;
+  .reservation-page__hours-row strong {
+    font-size: 0.58rem;
   }
-  .reservation-highlight__eyebrow {
-    font-size: 2rem;
+
+  .reservation-page__hours-media {
+    inset: -8% 0;
+
+    width: 100%;
+    height: 116%;
   }
 }
 
@@ -529,8 +626,7 @@
   .reservation-page__hero-cta,
   .reservation-page__hero-cta::before,
   .reservation-page__occasion,
-  .reservation-page__occasion-arrow,
-  .reservation-page__hours-media img {
+  .reservation-page__occasion-arrow {
     transition: none;
   }
 }

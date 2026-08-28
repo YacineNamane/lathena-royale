@@ -536,7 +536,11 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .contact-intro__heading h1 {
+    font-size: clamp(3rem, 10vw, 7rem);
+  }
+
   .contact-intro__portrait {
     grid-template-columns: 1fr;
   }
