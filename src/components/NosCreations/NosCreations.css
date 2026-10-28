@@ -346,11 +346,10 @@
   }
 
   .creations-filters {
-    width: 100%;
-
+    width: 70%;
     gap: 20px;
-
     margin-bottom: 5vh;
+    margin: auto;
   }
 
   .creations-filters__group {

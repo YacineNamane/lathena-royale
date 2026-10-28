@@ -203,7 +203,7 @@ function ContactForm() {
           <p>Les champs marqués d'un * sont obligatoires.</p>
 
           <button type="submit">
-            <span>Envoyer le message</span>
+            <span>Envoyer </span>
             <span aria-hidden="true">↗</span>
           </button>
         </div>

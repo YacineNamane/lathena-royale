@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useScroll } from "framer-motion";
 
 import Navbar from "../components/Navbar/Navbar";
+import MobileNavigation from "../components/Navbar/MobileNavigation/MobileNavigation";
 import Footer from "../components/Footer/Footer";
 
 function MainLayout() {
@@ -16,6 +17,7 @@ function MainLayout() {
   return (
     <>
       <Navbar heroProgress={scrollYProgress} />
+      <MobileNavigation />
 
       <main className="main-content">
         <Outlet
