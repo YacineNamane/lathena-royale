@@ -483,6 +483,10 @@
     background: transparent;
   }
 
+  .reservation-highlight__eyebrow {
+    letter-spacing: 18px;
+  }
+
   .reservation-page__hours-heading {
     margin: 0;
   }
@@ -532,11 +536,12 @@
   }
 
   .reservation-highlight__eyebrow {
-    font-size: clamp(2rem, 10vw, 2.5rem);
+    font-size: clamp(2rem, 10vw, 2rem);
+    letter-spacing: 12px;
   }
 
   .reservation-page__hero h1 {
-    font-size: clamp(3.6rem, 16vw, 5.5rem);
+    font-size: clamp(3.6rem, 16vw, 3.5rem);
 
     letter-spacing: 0.025em;
   }
@@ -597,7 +602,7 @@
   }
 
   .reservation-page__hours-heading h2 {
-    font-size: clamp(3.5rem, 15vw, 5.5rem);
+    font-size: clamp(3rem, 11vw, 5.5rem);
   }
 
   .reservation-page__hours-row {

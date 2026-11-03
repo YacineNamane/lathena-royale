@@ -571,6 +571,9 @@
   .contact-form__footer button {
     width: 100%;
   }
+  .contact-intro__socials nav {
+    display: flex;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

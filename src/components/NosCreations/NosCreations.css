@@ -274,7 +274,7 @@
 
 @media (max-width: 1024px) {
   .creations-page {
-    padding: 12vh 24px 8vh;
+    padding: 22vh 0px 4vh;
   }
 
   .creations-page__heading h1 {
@@ -299,6 +299,7 @@
 
   .creations-filters__group {
     justify-content: center;
+    flex-direction: column;
   }
 
   .creations-filters__options {

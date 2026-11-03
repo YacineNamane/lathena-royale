@@ -1,8 +1,9 @@
+import AboutUs from "../../components/AboutUs/AboutUs";
 import "./About.css";
 function About() {
   return (
     <main>
-      <h1>À propos</h1>
+      <AboutUs />
     </main>
   );
 }
