@@ -5,6 +5,7 @@ import { useScroll } from "framer-motion";
 import Navbar from "../components/Navbar/Navbar";
 import MobileNavigation from "../components/Navbar/MobileNavigation/MobileNavigation";
 import Footer from "../components/Footer/Footer";
+import ScrollToTop from "../router/ScrollToTop";
 
 function MainLayout() {
   const heroRef = useRef(null);
@@ -16,6 +17,8 @@ function MainLayout() {
 
   return (
     <>
+      <ScrollToTop />
+
       <Navbar heroProgress={scrollYProgress} />
       <MobileNavigation />
 

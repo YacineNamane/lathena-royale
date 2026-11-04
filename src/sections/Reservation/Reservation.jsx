@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import reservationHoursImage from "../../assets/images/stores/BT3.jpg";
+import tableImage from "../../assets/images/table.jpg";
 
 import "./Reservation.css";
 
@@ -61,6 +62,12 @@ function ReservationSection() {
       <section
         className="reservation-page__hero"
         aria-labelledby="reservation-title"
+        style={{
+          backgroundImage: `linear-gradient(
+      rgba(11, 11, 10, 0.45),
+      rgba(11, 11, 10, 0.65)
+    ), url(${tableImage})`,
+        }}
       >
         <div className="reservation-page__hero-inner">
           <h1 id="reservation-title">
@@ -117,6 +124,7 @@ function ReservationSection() {
       </section>
 
       <section
+        id="reservation-hours"
         ref={hoursRef}
         className="reservation-page__hours"
         aria-labelledby="reservation-hours-title"

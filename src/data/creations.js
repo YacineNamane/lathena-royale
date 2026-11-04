@@ -1,138 +1,193 @@
-import G1 from "../assets/images/creations/G1.jpg";
-import G2 from "../assets/images/creations/G2.jpg";
-import G3 from "../assets/images/creations/G3.jpg";
-import G4 from "../assets/images/creations/G4.jpg";
-import G5 from "../assets/images/creations/G5.jpg";
-import G6 from "../assets/images/creations/G6.jpg";
-import G7 from "../assets/images/creations/G7.jpg";
-import G8 from "../assets/images/creations/G8.jpg";
+const creationImages = import.meta.glob("../assets/images/creations/G*.webp", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const image = (number) =>
+  creationImages[`../assets/images/creations/G${number}.webp`];
+
+const gallery = (...numbers) => numbers.map(image);
 
 export const creations = [
   {
     id: "creation-01",
-
     name: "L'Écrin Athena",
-
     category: "Signature",
-
     season: "Collection permanente",
-
-    coverImage: G1,
-
-    gallery: [G1, G2, G3],
-
+    coverImage: image(1),
+    gallery: gallery(1, 2, 3),
     featured: true,
   },
-
   {
     id: "creation-02",
-
     name: "Le Jardin Royal",
-
     category: "Entremets",
-
     season: "Printemps",
-
-    coverImage: G2,
-
-    gallery: [G2, G4, G5],
-
+    coverImage: image(2),
+    gallery: gallery(2, 4, 5),
     featured: true,
   },
-
   {
     id: "creation-03",
-
     name: "La Perle Vanille",
-
     category: "Création saisonnière",
-
     season: "Automne",
-
-    coverImage: G3,
-
-    gallery: [G3, G6, G7],
-
+    coverImage: image(3),
+    gallery: gallery(3, 6, 7),
     featured: true,
   },
-
   {
     id: "creation-04",
-
     name: "L'Instant Chocolat",
-
     category: "Chocolat",
-
     season: "Hiver",
-
-    coverImage: G4,
-
-    gallery: [G4, G8],
-
+    coverImage: image(4),
+    gallery: gallery(4, 8),
     featured: false,
   },
-
   {
     id: "creation-05",
-
     name: "Le Souffle Floral",
-
     category: "Éphémère",
-
     season: "Été",
-
-    coverImage: G5,
-
-    gallery: [G5],
-
+    coverImage: image(5),
+    gallery: gallery(5, 9),
     featured: false,
   },
-
   {
     id: "creation-06",
-
     name: "L'Éclat Doré",
-
     category: "Signature",
-
     season: "Collection permanente",
-
-    coverImage: G6,
-
-    gallery: [G6],
-
+    coverImage: image(6),
+    gallery: gallery(6, 10),
     featured: false,
   },
-
   {
     id: "creation-07",
-
     name: "La Collection Royale",
-
     category: "Maison",
-
     season: "Édition limitée",
-
-    coverImage: G7,
-
-    gallery: [G7],
-
+    coverImage: image(7),
+    gallery: gallery(7, 11),
     featured: false,
   },
-
   {
     id: "creation-08",
-
     name: "La Dernière Création",
-
     category: "Nouveauté",
-
     season: "2026",
-
-    coverImage: G8,
-
-    gallery: [G8],
-
+    coverImage: image(8),
+    gallery: gallery(8, 12),
+    featured: false,
+  },
+  {
+    id: "creation-09",
+    name: "Le Cœur Praliné",
+    category: "Entremets",
+    season: "Hiver",
+    coverImage: image(9),
+    gallery: gallery(9, 13),
+    featured: false,
+  },
+  {
+    id: "creation-10",
+    name: "La Rose d'Orient",
+    category: "Création saisonnière",
+    season: "Printemps",
+    coverImage: image(10),
+    gallery: gallery(10, 14),
+    featured: false,
+  },
+  {
+    id: "creation-11",
+    name: "Le Noir Intense",
+    category: "Chocolat",
+    season: "Collection permanente",
+    coverImage: image(11),
+    gallery: gallery(11, 15),
+    featured: false,
+  },
+  {
+    id: "creation-12",
+    name: "La Parenthèse Fruitée",
+    category: "Éphémère",
+    season: "Été",
+    coverImage: image(12),
+    gallery: gallery(12, 16),
+    featured: false,
+  },
+  {
+    id: "creation-13",
+    name: "L'Héritage de la Maison",
+    category: "Maison",
+    season: "Collection permanente",
+    coverImage: image(13),
+    gallery: gallery(13, 17),
+    featured: false,
+  },
+  {
+    id: "creation-14",
+    name: "Le Jardin d'Ambre",
+    category: "Signature",
+    season: "Automne",
+    coverImage: image(14),
+    gallery: gallery(14, 18),
+    featured: false,
+  },
+  {
+    id: "creation-15",
+    name: "La Tentation Cacao",
+    category: "Chocolat",
+    season: "Édition limitée",
+    coverImage: image(15),
+    gallery: gallery(15, 19),
+    featured: false,
+  },
+  {
+    id: "creation-16",
+    name: "L'Instant Précieux",
+    category: "Nouveauté",
+    season: "2026",
+    coverImage: image(16),
+    gallery: gallery(16, 20),
+    featured: false,
+  },
+  {
+    id: "creation-17",
+    name: "Le Délice des Saisons",
+    category: "Création saisonnière",
+    season: "Automne",
+    coverImage: image(17),
+    gallery: gallery(17, 1),
+    featured: false,
+  },
+  {
+    id: "creation-18",
+    name: "La Douceur Royale",
+    category: "Entremets",
+    season: "Printemps",
+    coverImage: image(18),
+    gallery: gallery(18, 2),
+    featured: false,
+  },
+  {
+    id: "creation-19",
+    name: "L'Édition Privilège",
+    category: "Éphémère",
+    season: "Édition limitée",
+    coverImage: image(19),
+    gallery: gallery(19, 3),
+    featured: false,
+  },
+  {
+    id: "creation-20",
+    name: "La Signature Athena",
+    category: "Signature",
+    season: "Collection permanente",
+    coverImage: image(20),
+    gallery: gallery(20, 4),
     featured: false,
   },
 ];

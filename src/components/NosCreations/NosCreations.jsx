@@ -3,182 +3,172 @@ import { creations } from "../../data/creations";
 import { CreationCard } from "../../sections/CreationsShowcase/CreationsShowcase";
 import "./NosCreations.css";
 
-function FilterGroup({ label, options, value, onChange }) {
+const ROW_PATTERN = [2, 3, 2];
+
+function FilterGroup({ title, options, active, onChange }) {
   return (
     <div className="creations-filters__group">
-      <span className="creations-filters__label">{label}</span>
+      <span className="creations-filters__label">{title}</span>
 
       <div className="creations-filters__options">
-        {options.map((option) => {
-          const active = value === option.value;
-
-          return (
-            <button
-              key={option.value}
-              type="button"
-              className={`creations-filters__option ${
-                active ? "is-active" : ""
-              }`}
-              onClick={() => onChange(option.value)}
-              aria-pressed={active}
-            >
-              {option.label}
-            </button>
-          );
-        })}
+        {options.map((option) => (
+          <button
+            key={option}
+            type="button"
+            className={`creations-filters__option ${
+              active === option ? "is-active" : ""
+            }`}
+            onClick={() => onChange(option)}
+          >
+            {option}
+          </button>
+        ))}
       </div>
     </div>
   );
 }
 
 function NosCreations() {
-  const [category, setCategory] = useState("all");
-  const [season, setSeason] = useState("all");
+  const [activeCategory, setActiveCategory] = useState("Toutes");
+  const [activeSeason, setActiveSeason] = useState("Toutes");
 
-  const categoryOptions = useMemo(() => {
-    const categories = [
-      ...new Set(creations.map((creation) => creation.category)),
-    ];
+  const categories = [
+    "Toutes",
+    "Signature",
+    "Entremets",
+    "Création saisonnière",
+    "Chocolat",
+    "Éphémère",
+    "Maison",
+    "Nouveauté",
+  ];
 
-    return [
-      { value: "all", label: "Toutes" },
-      ...categories.map((category) => ({
-        value: category,
-        label: category,
-      })),
-    ];
-  }, []);
-
-  const seasonOptions = useMemo(() => {
-    const seasons = [...new Set(creations.map((creation) => creation.season))];
-
-    return [
-      { value: "all", label: "Toutes" },
-      ...seasons.map((season) => ({
-        value: season,
-        label: season,
-      })),
-    ];
-  }, []);
+  const seasons = [
+    "Toutes",
+    "Collection permanente",
+    "Printemps",
+    "Automne",
+    "Hiver",
+    "Été",
+    "Édition limitée",
+    "2026",
+  ];
 
   const filteredCreations = useMemo(() => {
     return creations.filter((creation) => {
       const matchesCategory =
-        category === "all" || creation.category === category;
+        activeCategory === "Toutes" || creation.category === activeCategory;
 
-      const matchesSeason = season === "all" || creation.season === season;
+      const matchesSeason =
+        activeSeason === "Toutes" || creation.season === activeSeason;
 
       return matchesCategory && matchesSeason;
     });
-  }, [category, season]);
+  }, [activeCategory, activeSeason]);
+
+  const rows = useMemo(() => {
+    const result = [];
+    let currentIndex = 0;
+    let patternIndex = 0;
+
+    while (currentIndex < filteredCreations.length) {
+      const rowSize = ROW_PATTERN[patternIndex % ROW_PATTERN.length];
+
+      result.push({
+        type: rowSize === 3 ? "medium" : "large",
+        items: filteredCreations.slice(currentIndex, currentIndex + rowSize),
+      });
+
+      currentIndex += rowSize;
+      patternIndex++;
+    }
+
+    return result;
+  }, [filteredCreations]);
 
   const resetFilters = () => {
-    setCategory("all");
-    setSeason("all");
+    setActiveCategory("Toutes");
+    setActiveSeason("Toutes");
   };
 
-  const hasFilters = category !== "all" || season !== "all";
+  const toggleCategory = (option) => {
+    setActiveCategory((current) => (current === option ? "Toutes" : option));
+  };
 
-  const firstRow = filteredCreations.slice(0, 2);
-  const secondRow = filteredCreations.slice(2, 5);
-  const thirdRow = filteredCreations.slice(5, 7);
+  const toggleSeason = (option) => {
+    setActiveSeason((current) => (current === option ? "Toutes" : option));
+  };
 
   return (
-    <main className="creations-page">
+    <section className="creations-page">
       <header className="creations-page__header">
         <div className="creations-page__heading">
+          <span className="creations-page__eyebrow">L'Athéna Royale</span>
+
           <h1>Nos créations</h1>
 
           <p>
-            Des créations pensées comme des pièces uniques, entre précision,
-            matière et émotion.
+            Découvrez nos créations pâtissières, imaginées avec passion et
+            façonnées avec exigence.
           </p>
         </div>
 
-        <span className="creations-page__count">
-          {filteredCreations.length.toString().padStart(2, "0")} créations
-        </span>
+        <div className="creations-page__count">
+          {filteredCreations.length} créations
+        </div>
       </header>
 
-      <section className="creations-filters" aria-label="Filtrer les créations">
+      <div className="creations-filters">
         <FilterGroup
-          label="Collection"
-          options={categoryOptions}
-          value={category}
-          onChange={setCategory}
+          title="Collection"
+          options={categories}
+          active={activeCategory}
+          onChange={toggleCategory}
         />
 
         <FilterGroup
-          label="Saison"
-          options={seasonOptions}
-          value={season}
-          onChange={setSeason}
+          title="Saison"
+          options={seasons}
+          active={activeSeason}
+          onChange={toggleSeason}
         />
 
-        {hasFilters && (
-          <button
-            type="button"
-            className="creations-filters__reset"
-            onClick={resetFilters}
-          >
-            Réinitialiser
+        <button
+          type="button"
+          className="creations-filters__reset"
+          onClick={resetFilters}
+        >
+          Réinitialiser les filtres
+        </button>
+      </div>
+
+      {filteredCreations.length > 0 ? (
+        <div className="nos-creations__grid">
+          {rows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className={`creations-showcase__row creations-showcase__row--${row.type}`}
+            >
+              {row.items.map((creation, index) => (
+                <CreationCard
+                  key={creation.id}
+                  creation={creation}
+                  index={index}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="creations-page__empty">
+          <p>Aucune création ne correspond à votre recherche.</p>
+
+          <button type="button" onClick={resetFilters}>
+            Voir toutes les créations
           </button>
-        )}
-      </section>
-
-      <section
-        className="creations-showcase creations-page__results"
-        aria-live="polite"
-      >
-        {filteredCreations.length > 0 ? (
-          <>
-            {firstRow.length > 0 && (
-              <div className="creations-showcase__row creations-showcase__row--large">
-                {firstRow.map((creation, index) => (
-                  <CreationCard
-                    key={creation.id}
-                    creation={creation}
-                    index={index}
-                  />
-                ))}
-              </div>
-            )}
-
-            {secondRow.length > 0 && (
-              <div className="creations-showcase__row creations-showcase__row--medium">
-                {secondRow.map((creation, index) => (
-                  <CreationCard
-                    key={creation.id}
-                    creation={creation}
-                    index={index + 2}
-                  />
-                ))}
-              </div>
-            )}
-
-            {thirdRow.length > 0 && (
-              <div className="creations-showcase__row creations-showcase__row--large">
-                {thirdRow.map((creation, index) => (
-                  <CreationCard
-                    key={creation.id}
-                    creation={creation}
-                    index={index + 5}
-                  />
-                ))}
-              </div>
-            )}
-          </>
-        ) : (
-          <div className="creations-page__empty">
-            <p>Aucune création ne correspond à votre sélection.</p>
-
-            <button type="button" onClick={resetFilters}>
-              Voir toutes les créations
-            </button>
-          </div>
-        )}
-      </section>
-    </main>
+        </div>
+      )}
+    </section>
   );
 }
 

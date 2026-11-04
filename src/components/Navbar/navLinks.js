@@ -19,6 +19,10 @@ const navLinks = [
     label: "Réservation",
     path: "/reservation",
   },
+  {
+    label: "Horaires",
+    path: "/reservation#reservation-hours",
+  },
 ];
 
 export default navLinks;

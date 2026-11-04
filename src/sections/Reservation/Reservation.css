@@ -18,6 +18,10 @@
   padding: 18vh 5vw 14vh;
 
   text-align: center;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .reservation-page__hero-inner {

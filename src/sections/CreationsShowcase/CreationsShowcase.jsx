@@ -126,9 +126,11 @@ export function CreationCard({ creation, index = 0 }) {
 }
 
 function CreationsShowcase() {
-  const firstRow = creations.slice(0, 2);
-  const secondRow = creations.slice(2, 5);
-  const thirdRow = creations.slice(5, 7);
+  const displayedCreations = creations.slice(0, 7);
+
+  const firstRow = displayedCreations.slice(0, 2);
+  const secondRow = displayedCreations.slice(2, 5);
+  const thirdRow = displayedCreations.slice(5, 7);
 
   return (
     <section className="creations-showcase">
@@ -142,13 +144,21 @@ function CreationsShowcase() {
 
       <div className="creations-showcase__row creations-showcase__row--medium">
         {secondRow.map((creation, index) => (
-          <CreationCard key={creation.id} creation={creation} index={index} />
+          <CreationCard
+            key={creation.id}
+            creation={creation}
+            index={index + 2}
+          />
         ))}
       </div>
 
       <div className="creations-showcase__row creations-showcase__row--large">
         {thirdRow.map((creation, index) => (
-          <CreationCard key={creation.id} creation={creation} index={index} />
+          <CreationCard
+            key={creation.id}
+            creation={creation}
+            index={index + 5}
+          />
         ))}
       </div>
     </section>

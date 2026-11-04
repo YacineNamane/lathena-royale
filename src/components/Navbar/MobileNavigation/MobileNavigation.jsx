@@ -7,6 +7,7 @@ import {
   Store,
   Mail,
   CalendarDays,
+  Clock,
   Search,
   ChevronRight,
   X,
@@ -24,6 +25,7 @@ const navigationIcons = {
   About: Store,
   Contact: Mail,
   Réservation: CalendarDays,
+  Horaires: Clock,
 };
 
 function MobileNavigation() {
@@ -288,7 +290,6 @@ function MobileNavigation() {
                     >
                       <Icon size={16} />
                       <span>{link.label}</span>
-                      <ChevronRight size={15} />
                     </NavLink>
                   );
                 })
