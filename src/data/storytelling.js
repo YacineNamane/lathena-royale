@@ -1,39 +1,39 @@
-import StoryVision from "../assets/images/chapters/CH1.jpg";
-import StoryGesture from "../assets/images/chapters/CH2.jpg";
-import StoryMaterial from "../assets/images/chapters/CH3.jpg";
-import StoryExperience from "../assets/images/chapters/CH4.jpg";
+import StoryVision from "../assets/images/creations/G14.webp";
+import StoryGesture from "../assets/images/chapters/CH2.webp";
+import StoryMaterial from "../assets/images/chapters/CH3.webp";
+import StoryExperience from "../assets/images/chapters/CH4.webp";
 
 export const storytellingChapters = [
   {
     id: "vision",
     number: "01",
     title: "Notre vision",
-    text: "L'Athena Royale imagine une nouvelle expression de l'élégance, où la précision rencontre une vision contemporaine de la Maison.",
+    text: "Nous imaginons la pâtisserie comme un travail d’équilibre : des saveurs franches, des textures délicates et une douceur justement maîtrisée. Chaque création est pensée pour offrir un véritable moment de dégustation, où rien ne prend le dessus et où chaque élément trouve sa place.",
     image: StoryVision,
-    imageAlt: "L'univers de la Maison L'Athena Royale",
+    imageAlt: "Une création pâtissière de la Maison L'Athéna Royale",
   },
   {
     id: "gesture",
     number: "02",
-    title: "Le geste",
-    text: "Derrière chaque création se trouve un geste précis, répété, maîtrisé et transmis avec la même exigence.",
+    title: "Le savoir-faire",
+    text: "Une pâtisserie se construit étape après étape. Préparer une base, travailler une crème, assembler les différentes textures, soigner un glaçage ou une finition : chaque geste compte. C’est dans cette attention portée aux détails que nos créations prennent forme.",
     image: StoryGesture,
-    imageAlt: "Le savoir-faire artisanal de L'Athena Royale",
+    imageAlt: "Le travail de précision autour d'une création pâtissière",
   },
   {
     id: "material",
     number: "03",
-    title: "La matière",
-    text: "Textures, matières et volumes sont choisis pour créer une expérience qui se découvre autant qu'elle se porte.",
+    title: "Le choix des ingrédients",
+    text: "Le caractère d'une pâtisserie commence par ses ingrédients. Le parfum d'une vanille, l'intensité d'un chocolat, la fraîcheur d'un fruit ou la rondeur d'un praliné orientent chaque association. Nous accordons à ces saveurs une place essentielle dans la composition de nos créations.",
     image: StoryMaterial,
-    imageAlt: "Les matières et textures de L'Athena Royale",
+    imageAlt: "Ingrédients et matières premières utilisés en pâtisserie",
   },
   {
     id: "experience",
     number: "04",
-    title: "L'expérience",
-    text: "De la première rencontre à la découverte d'une Maison, chaque détail participe à une même expérience de l'élégance.",
+    title: "La dégustation",
+    text: "À la dégustation, tout se révèle : le fondant d'une crème, le croustillant d'un biscuit, la fraîcheur d'un fruit ou l'intensité d'un chocolat. Les textures se répondent, les saveurs évoluent, et chaque bouchée dévoile une nouvelle facette de la création.",
     image: StoryExperience,
-    imageAlt: "L'expérience L'Athena Royale",
+    imageAlt: "Découpe révélant les différentes couches d'un entremets",
   },
 ];

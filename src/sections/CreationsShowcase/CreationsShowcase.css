@@ -96,17 +96,21 @@
   }
 
   .creations-showcase__row--large {
-    height: 80vh;
+    height: 70vh;
   }
 
   .creations-showcase__row--medium {
-    height: 45vh;
+    height: 40vh;
   }
 
   .creation-card__info {
     padding: 1.4rem;
 
     transform: translateY(0);
+  }
+  .creation-card__info h3,
+  .creation-card__info span {
+    font-size: 0.6rem;
   }
 }
 

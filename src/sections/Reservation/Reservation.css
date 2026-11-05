@@ -1,18 +1,22 @@
 .reservation-page {
   width: 100%;
   min-height: 100vh;
-
   background: var(--color-dark);
   color: white;
 }
 
 .reservation-page__hero {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 650px;
 
   box-sizing: border-box;
   padding: 18vh 5vw 14vh;
@@ -46,14 +50,12 @@
 
 .reservation-page__hero p {
   width: min(100%, 500px);
-
   margin: 45px auto 0;
 
   color: rgba(255, 255, 255, 0.52);
 
   font-size: 0.82rem;
   line-height: 1.9;
-
   letter-spacing: 0.035em;
 }
 
@@ -65,7 +67,6 @@
   justify-content: center;
 
   min-width: 220px;
-
   margin-top: 42px;
   padding: 17px 24px;
 
@@ -86,7 +87,6 @@
   text-transform: uppercase;
 
   cursor: pointer;
-
   isolation: isolate;
 
   transition:
@@ -99,7 +99,6 @@
 
   position: absolute;
   inset: 0;
-
   z-index: -1;
 
   background: var(--color-gold-soft);
@@ -111,7 +110,6 @@
 
 .reservation-page__hero-cta:hover {
   border-color: var(--color-gold-soft);
-
   color: var(--color-dark);
 }
 
@@ -120,10 +118,17 @@
 }
 
 .reservation-page__occasions {
-  width: min(100% - 10vw, 1270px);
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  padding: 13vh 5vw;
 
   margin: 0 auto;
-  padding: 13vh 0;
+
+  background: var(--color-dark);
+
+  box-shadow: 0 -25px 60px rgba(0, 0, 0, 0.12);
 }
 
 .reservation-page__occasions-heading {
@@ -139,7 +144,6 @@
   font-weight: 500;
 
   letter-spacing: 0.18em;
-
   text-transform: uppercase;
 }
 
@@ -165,13 +169,11 @@
 
 .reservation-page__occasion {
   display: grid;
-
   grid-template-columns: 55px 1fr 30px;
 
   align-items: center;
 
   min-height: 145px;
-
   padding: 28px 0;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -183,7 +185,6 @@
 
 .reservation-page__occasion-number {
   align-self: start;
-
   padding-top: 5px;
 
   color: var(--color-gold-soft);
@@ -212,14 +213,12 @@
 
 .reservation-page__occasion-content p {
   max-width: 440px;
-
   margin: 16px 0 0;
 
   color: rgba(255, 255, 255, 0.42);
 
   font-size: 0.76rem;
   line-height: 1.8;
-
   letter-spacing: 0.025em;
 }
 
@@ -237,18 +236,17 @@
 
 .reservation-page__occasion:hover {
   padding-left: 18px;
-
   border-color: rgba(255, 255, 255, 0.2);
 }
 
 .reservation-page__occasion:hover .reservation-page__occasion-arrow {
   color: var(--color-gold-soft);
-
   transform: translate(4px, -4px);
 }
 
 .reservation-page__hours {
   position: relative;
+  z-index: 2;
 
   display: flex;
 
@@ -286,7 +284,6 @@
 
 .reservation-page__hours-heading span {
   display: block;
-
   margin-bottom: 18px;
 
   color: rgba(255, 255, 255, 0.3);
@@ -295,7 +292,6 @@
   font-weight: 500;
 
   letter-spacing: 0.18em;
-
   text-transform: uppercase;
 }
 
@@ -336,7 +332,6 @@
 .reservation-page__hours-day {
   display: flex;
   align-items: center;
-
   gap: 12px;
 
   color: rgba(255, 255, 255, 0.45);
@@ -376,7 +371,6 @@
 
 .reservation-page__hours-note {
   max-width: 420px;
-
   margin: 24px 0 0;
 
   color: rgba(255, 255, 255, 0.25);
@@ -395,7 +389,6 @@
   height: 100%;
 
   margin: 0;
-
   overflow: hidden;
 }
 
@@ -404,7 +397,6 @@
 
   position: absolute;
   inset: 0;
-
   z-index: 1;
 
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.18));
@@ -443,7 +435,6 @@
     height: 116%;
 
     margin: 0;
-
     overflow: hidden;
   }
 
@@ -534,7 +525,8 @@
 
 @media (max-width: 768px) {
   .reservation-page__hero {
-    min-height: 100vh;
+    min-height: 100svh;
+    height: 100svh;
 
     padding: 15vh 6vw 12vh;
   }
@@ -545,7 +537,7 @@
   }
 
   .reservation-page__hero h1 {
-    font-size: clamp(3.6rem, 16vw, 3.5rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
 
     letter-spacing: 0.025em;
   }
@@ -560,9 +552,8 @@
   }
 
   .reservation-page__occasions {
-    width: calc(100% - 12vw);
-
-    padding: 12vh 0 14vh;
+    width: 100%;
+    padding: 13vh 5vw;
   }
 
   .reservation-page__occasions-heading {

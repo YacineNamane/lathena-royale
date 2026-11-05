@@ -1,7 +1,7 @@
-import ContactImage01 from "../assets/images/chapters/CH1.jpg";
-import ContactImage02 from "../assets/images/chapters/CH2.jpg";
-import ContactImage03 from "../assets/images/chapters/CH3.jpg";
-import ContactImage04 from "../assets/images/chapters/CH4.jpg";
+import ContactImage01 from "../assets/images/stores/BT1.webp";
+import ContactImage02 from "../assets/images/stores/BT2.webp";
+import ContactImage03 from "../assets/images/stores/BT3.webp";
+import ContactImage04 from "../assets/images/stores/BT4.webp";
 
 export const contactSubjects = [
   {

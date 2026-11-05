@@ -1,7 +1,7 @@
-import ParisStore from "../assets/images/stores/BT1.jpg";
-import LyonStore from "../assets/images/stores/BT2.jpg";
-import MonacoStore from "../assets/images/stores/BT3.jpg";
-import GeneveStore from "../assets/images/stores/BT4.jpg";
+import ParisStore from "../assets/images/stores/BT1.webp";
+import LyonStore from "../assets/images/stores/BT2.webp";
+import MonacoStore from "../assets/images/stores/BT3.webp";
+import GeneveStore from "../assets/images/stores/BT4.webp";
 
 export const stores = [
   {

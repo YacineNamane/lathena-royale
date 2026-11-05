@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import reservationImage from "../../assets/images/Reservation.jpg";
+import reservationImage from "../../assets/images/Reservation.webp";
 import "./ReservationHighlight.css";
 
 function ReservationHighlight() {

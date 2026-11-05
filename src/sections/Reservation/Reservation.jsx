@@ -1,8 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-import reservationHoursImage from "../../assets/images/stores/BT3.jpg";
-import tableImage from "../../assets/images/table.jpg";
+import reservationHoursImage from "../../assets/images/stores/BT5.webp";
+import tableImage from "../../assets/images/table.webp";
 
 import "./Reservation.css";
 
@@ -64,9 +64,9 @@ function ReservationSection() {
         aria-labelledby="reservation-title"
         style={{
           backgroundImage: `linear-gradient(
-      rgba(11, 11, 10, 0.45),
-      rgba(11, 11, 10, 0.65)
-    ), url(${tableImage})`,
+            rgba(11, 11, 10, 0.45),
+            rgba(11, 11, 10, 0.65)
+          ), url(${tableImage})`,
         }}
       >
         <div className="reservation-page__hero-inner">
@@ -130,7 +130,6 @@ function ReservationSection() {
         aria-labelledby="reservation-hours-title"
       >
         <motion.figure
-          ref={hoursRef}
           className="reservation-page__hours-media"
           style={{ y: imageY }}
         >
