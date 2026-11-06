@@ -275,7 +275,7 @@
 .nos-creations__grid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0px;
 }
 
 .nos-creations__grid .creations-showcase__row {
@@ -337,7 +337,7 @@
 
 @media (max-width: 768px) {
   .creations-page {
-    padding: 10vh 0px 7vh;
+    padding: 7vh 0px 7vh;
   }
 
   .creations-page__header {
@@ -378,6 +378,7 @@
     width: 70%;
     gap: 20px;
     margin-bottom: 5vh;
+    padding-bottom: 30px;
     margin: auto;
   }
 

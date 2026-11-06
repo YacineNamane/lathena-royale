@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { creations } from "../../data/creations";
 import { CreationCard } from "../../sections/CreationsShowcase/CreationsShowcase";
+import CreationModal from "../../sections/CreationsShowcase/CreationModal";
+import { AnimatePresence } from "framer-motion";
 import "./NosCreations.css";
 
 const ROW_PATTERN = [2, 3, 2];
@@ -31,6 +33,7 @@ function FilterGroup({ title, options, active, onChange }) {
 function NosCreations() {
   const [activeCategory, setActiveCategory] = useState("Toutes");
   const [activeSeason, setActiveSeason] = useState("Toutes");
+  const [selectedCreation, setSelectedCreation] = useState(null);
 
   const categories = [
     "Toutes",
@@ -154,6 +157,7 @@ function NosCreations() {
                   key={creation.id}
                   creation={creation}
                   index={index}
+                  onSelect={setSelectedCreation}
                 />
               ))}
             </div>
@@ -168,6 +172,15 @@ function NosCreations() {
           </button>
         </div>
       )}
+
+      <AnimatePresence>
+        {selectedCreation && (
+          <CreationModal
+            creation={selectedCreation}
+            onClose={() => setSelectedCreation(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { creations } from "../../data/creations";
 import { useLazyImage } from "../../hooks/useLazyImage";
+import CreationModal from "./CreationModal";
 import "./CreationsShowcase.css";
 
 function FlashTitle() {
@@ -20,9 +21,7 @@ function FlashTitle() {
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.6,
-      },
+      { threshold: 0.6 },
     );
 
     observer.observe(element);
@@ -44,13 +43,7 @@ function FlashTitle() {
           className="creations-showcase__letter"
           initial={{ opacity: 0 }}
           animate={
-            started
-              ? {
-                  opacity: [0, 1, 0.15, 1, 0, 1],
-                }
-              : {
-                  opacity: 0,
-                }
+            started ? { opacity: [0, 1, 0.15, 1, 0, 1] } : { opacity: 0 }
           }
           transition={
             started
@@ -69,28 +62,31 @@ function FlashTitle() {
   );
 }
 
-export function CreationCard({ creation, index = 0 }) {
+export function CreationCard({ creation, index = 0, onSelect }) {
   const { ref, visible } = useLazyImage();
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelect(creation);
+    }
+  };
 
   return (
     <motion.article
       ref={ref}
       className="creation-card"
+      role="button"
+      tabIndex={0}
+      aria-label={`Découvrir ${creation.name}`}
+      aria-haspopup="dialog"
+      onClick={() => onSelect(creation)}
+      onKeyDown={handleKeyDown}
       initial={{
         opacity: 0,
         y: 40,
       }}
-      animate={
-        visible
-          ? {
-              opacity: 1,
-              y: 0,
-            }
-          : {
-              opacity: 0,
-              y: 40,
-            }
-      }
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{
         duration: 1,
         delay: index * 0.12,
@@ -126,6 +122,8 @@ export function CreationCard({ creation, index = 0 }) {
 }
 
 function CreationsShowcase() {
+  const [selectedCreation, setSelectedCreation] = useState(null);
+
   const displayedCreations = creations.slice(0, 7);
 
   const firstRow = displayedCreations.slice(0, 2);
@@ -133,35 +131,53 @@ function CreationsShowcase() {
   const thirdRow = displayedCreations.slice(5, 7);
 
   return (
-    <section className="creations-showcase">
-      <FlashTitle />
+    <>
+      <section className="creations-showcase">
+        <FlashTitle />
 
-      <div className="creations-showcase__row creations-showcase__row--large">
-        {firstRow.map((creation, index) => (
-          <CreationCard key={creation.id} creation={creation} index={index} />
-        ))}
-      </div>
+        <div className="creations-showcase__row creations-showcase__row--large">
+          {firstRow.map((creation, index) => (
+            <CreationCard
+              key={creation.id}
+              creation={creation}
+              index={index}
+              onSelect={setSelectedCreation}
+            />
+          ))}
+        </div>
 
-      <div className="creations-showcase__row creations-showcase__row--medium">
-        {secondRow.map((creation, index) => (
-          <CreationCard
-            key={creation.id}
-            creation={creation}
-            index={index + 2}
+        <div className="creations-showcase__row creations-showcase__row--medium">
+          {secondRow.map((creation, index) => (
+            <CreationCard
+              key={creation.id}
+              creation={creation}
+              index={index + 2}
+              onSelect={setSelectedCreation}
+            />
+          ))}
+        </div>
+
+        <div className="creations-showcase__row creations-showcase__row--large">
+          {thirdRow.map((creation, index) => (
+            <CreationCard
+              key={creation.id}
+              creation={creation}
+              index={index + 5}
+              onSelect={setSelectedCreation}
+            />
+          ))}
+        </div>
+      </section>
+
+      <AnimatePresence>
+        {selectedCreation && (
+          <CreationModal
+            creation={selectedCreation}
+            onClose={() => setSelectedCreation(null)}
           />
-        ))}
-      </div>
-
-      <div className="creations-showcase__row creations-showcase__row--large">
-        {thirdRow.map((creation, index) => (
-          <CreationCard
-            key={creation.id}
-            creation={creation}
-            index={index + 5}
-          />
-        ))}
-      </div>
-    </section>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
 
