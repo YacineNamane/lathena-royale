@@ -65,7 +65,7 @@
 }
 
 .creations-page__heading p {
-  max-width: 555px;
+  max-width: 770px;
 
   margin: 36px 0 0;
 
@@ -294,17 +294,13 @@
 
 @media (max-width: 1024px) {
   .creations-page {
-    padding: 22vh 0px 4vh;
+    padding: 15vh 0px 4vh;
   }
 
   .creations-page__heading h1 {
     font-size: clamp(4rem, 11vw, 7rem);
 
     letter-spacing: 0.09em;
-  }
-
-  .creations-page__heading p {
-    max-width: 520px;
   }
 
   .creations-page__count {

@@ -466,7 +466,7 @@
   object-fit: cover;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .contact-page {
     display: block;
 
@@ -476,8 +476,7 @@
   .contact-intro {
     height: auto;
     min-height: 100vh;
-
-    padding: 12vh 6vw 8vh;
+    padding: 3vh 10vw 8vh;
   }
 
   .contact-intro__content {

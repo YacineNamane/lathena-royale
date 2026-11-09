@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import ceoImage from "../../assets/images/CEO.jpg";
+import ceoImage from "../../assets/images/CEO.webp";
 
 import {
   motion,

@@ -1,7 +1,7 @@
-import heroImage from "../../assets/images/about/hero.png";
-import houseImage from "../../assets/images/about/hero.png";
-import signatureImage from "../../assets/images/about/hero.png";
-import craftImage from "../../assets/images/about/hero.png";
+import heroImage from "../../assets/images/about/hero.webp";
+import houseImage from "../../assets/images/creations/G19.webp";
+import signatureImage from "../../assets/images/chapters/CH2.webp";
+import craftImage from "../../assets/images/chapters/CH4.webp";
 
 export const aboutPageData = {
   sections: [
@@ -78,8 +78,8 @@ export const aboutPageData = {
       title: "À découvrir et à partager.",
       text: "Découvrez les créations de L’Athéna Royale et trouvez celle qui accompagnera votre prochain moment gourmand.",
       button: {
-        label: "EXPLORER NOS CRÉATIONS",
-        href: "/creations",
+        label: "VENIR SAVOURER L’INSTANT",
+        href: "/Reservation",
       },
     },
   ],

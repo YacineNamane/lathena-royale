@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 import LogoAR from "../../../assets/images/LogoAR.png";
-import ownerPhoto from "../../../assets/images/CEO.jpg";
+import ownerPhoto from "../../../assets/images/CEO.webp";
 import navLinks from "../navLinks";
 
 import "./MobileNavigation.css";

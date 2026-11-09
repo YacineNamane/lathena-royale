@@ -8,6 +8,7 @@ import CreationsShowcase from "../../sections/CreationsShowcase/CreationsShowcas
 import StorytellingShowcase from "../../sections/Storytelling/StorytellingShowcase";
 import ReservationHighlight from "../../sections/ReservationHighlight/ReservationHightlight";
 import Newsletter from "../../sections/Newsletter/Newsletter";
+import Footer from "../../components/Footer/Footer";
 
 import "./Home.css";
 
@@ -48,6 +49,7 @@ function Home() {
           <StorytellingShowcase />
           <ReservationHighlight />
           <Newsletter />
+          <Footer />
         </motion.div>
       </section>
     </>
