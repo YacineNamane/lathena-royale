@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import reservationHoursImage from "../../assets/images/stores/BT5.webp";
-import tableImage from "../../assets/images/table.webp";
+import tableImage from "../../assets/images/Table.webp";
 
 import "./Reservation.css";
 
