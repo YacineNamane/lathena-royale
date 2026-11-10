@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import reservationImage from "../../assets/images/Reservation.webp";
 import "./ReservationHighlight.css";
 
@@ -44,9 +45,9 @@ function ReservationHighlight() {
           part, découvrez notre maison et réservez votre table.
         </p>
 
-        <a href="/reservation" className="reservation-highlight__cta">
+        <Link to="/reservation" className="reservation-highlight__cta">
           <span>Réserver une table</span>
-        </a>
+        </Link>
       </div>
     </section>
   );
